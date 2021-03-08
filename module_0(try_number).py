@@ -1,20 +1,22 @@
-a = 1
-b = 100
-number = int(input('Your number: '))
-tries = 1
-mid_range = round(b/2)
+import random
 
-while mid_range != number:
-    if mid_range > number:
-        print(mid_range, 'Less')
-        b = mid_range
-    else:
-        print(mid_range, 'More')
-        a = mid_range
-    tries += 1
-    mid_range = a + round((b - a) / 2)
+def count_of_tries (a, b):
+    number = random.randint(a, b+1)
+    count = 0
+    mid_range = round(b/2)
 
-print(mid_range, 'Computer guessed your number with', tries, 'tries')
+    while mid_range != number:
+        count += 1
+        if mid_range > number:
+            b = mid_range
+        else:
+            a = mid_range
+        
+        mid_range = a + round((b - a) / 2)
+    
+    return (count)
+    
+print (count_of_tries (1, 100))
 
 # import numpy as np
 
